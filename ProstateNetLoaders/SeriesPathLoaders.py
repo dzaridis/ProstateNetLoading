@@ -86,7 +86,6 @@ class SequenceSelectorHeuristics():
         Args
             str : orientation. Permitted values "AX", "SAG", "COR" 
         """
-        print(self.desc.values())
         self.NormDesc = {}
         for key,value in self.desc.items():
             for keylup,valuelup in ProstateNetLoaders.LookUpTable.GetLookUpTable().items():
@@ -138,7 +137,6 @@ class SequenceSelectorAI():
         Args
             str : orientation. Permitted values "AX", "SAG", "COR" 
         """
-        print(self.desc.values())
         self.NormDesc = {}
         for key,value in self.desc.items():
             a = self.metadata[self.metadata["series_uid"] == key]["series_type"].values
