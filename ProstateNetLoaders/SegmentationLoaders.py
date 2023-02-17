@@ -6,12 +6,13 @@ from ProstateNetLoaders import SeriesPathLoaders
 
 
 class SegmentationLoader:
-    def __init__(self, patient_path):
+    def __init__(self, patient_path, metadata):
         self.patient_path = patient_path
+        self.metadata = metadata
         self.mask = None 
         self.OrderKey = {}
         
-        ses = SeriesPathLoaders.SequenceSelector(self.patient_path)
+        ses = SeriesPathLoaders.SequenceSelectorAI(self.patient_path,self.metadata)
         ses.SetSeriesSequences(orientation="AX")
         ser_dicts = ses.GetSeriesSequences()
         for key in ser_dicts.keys():

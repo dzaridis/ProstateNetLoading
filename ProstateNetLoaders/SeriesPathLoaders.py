@@ -54,7 +54,7 @@ class ProstateNetPathLoaders:
         """
         return self.ser , self.ser_descr
     
-class SequenceSelector():
+class SequenceSelectorHeuristics():
     def __init__(self, patient_path):
         """Constructor for the sequence selector. Preferably utilized
            after the ProstateNetLoaders.SeriesPathsLoaders.ProstateNetPathLoaders Class
@@ -111,6 +111,59 @@ class SequenceSelector():
             dict: keys are the series names, values are the homogenized sequence description name ("T2" or "ADC", or "DWI)
         """
         return self.NormDesc
+    
+class SequenceSelectorAI():
+    def __init__(self, patient_path, metadata):
+        """Constructor for the sequence selector. Preferably utilized
+           after the ProstateNetLoaders.SeriesPathsLoaders.ProstateNetPathLoaders Class
+           in order to obtain  ser_description and series_paths
+
+        Args:
+            str file path: patient's path 
+            csv file: contains information regarding series description information from Jose's Docker 
+        """
+        self.patient_path = patient_path
+        self.metadata = metadata
+        ImObj = ProstateNetLoaders.SeriesPathLoaders.ProstateNetPathLoaders(self.patient_path)
+        ImObj.SeriesLoader()
+        ImObj.LoadObjects()
+        ImObj.LoadSeriesDescription()
+        self.serobj, self.desc = ImObj.GetSitkObjSerDescr() # returns the description of each series in a dict for a single patient
+        
+            
+    
+    def SetSeriesSequences(self,orientation = "AX"):
+        """
+        Sets the dictionary with keys as the series names and values as the corresponding Series Description in a homogenized form
+        Args
+            str : orientation. Permitted values "AX", "SAG", "COR" 
+        """
+        print(self.desc.values())
+        self.NormDesc = {}
+        for key,value in self.desc.items():
+            a = self.metadata[self.metadata["series_uid"] == key]["series_type"].values
+            try:
+                if orientation == "AX":
+                    if "tra" in value or "TRA" in value or "AX" in value or "ax" in value:
+                        self.NormDesc.update({key: a})
+                elif orientation == "SAG":
+                    if "sag" in value or "SAG":
+                        self.NormDesc.update({key: a})
+                elif orientation == "COR":
+                    if "cor" in value or "COR":
+                        self.NormDesc.update({key: a})
+            except:
+                self.NormDesc.update({key: a})
+        
+    def GetSeriesSequences(self):
+        """Returns the dict of series sequence
+
+        Returns:
+            dict: keys are the series names, values are the homogenized sequence description name ("T2" or "ADC", or "DWI)
+        """
+        return self.NormDesc    
+
+
 
 class ArrayLoad:
     def __init__(self, ser_dc):
