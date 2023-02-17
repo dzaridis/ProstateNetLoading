@@ -139,19 +139,23 @@ class SequenceSelectorAI():
         """
         self.NormDesc = {}
         for key,value in self.desc.items():
+            print(value)
+            print(key)
             a = self.metadata[self.metadata["series_uid"] == key]["series_type"].values
-            try:
-                if orientation == "AX":
-                    if "tra" in value or "TRA" in value or "AX" in value or "ax" in value:
-                        self.NormDesc.update({key: a})
-                elif orientation == "SAG":
-                    if "sag" in value or "SAG":
-                        self.NormDesc.update({key: a})
-                elif orientation == "COR":
-                    if "cor" in value or "COR":
-                        self.NormDesc.update({key: a})
-            except:
+            print(a)
+            print("----------------------")
+            if orientation == "AX":
+                if "tra" in value or "TRA" in value or "AX" in value or "Axial" in value or "AXIAL" in value or "axial" in value or "ax" in value or "Ax" in value or "Tra" in value:
+                    self.NormDesc.update({key: a})
+            elif orientation == "SAG":
+                if "sag" in value or "SAG":
+                    self.NormDesc.update({key: a})
+            elif orientation == "COR":
+                if "cor" in value or "COR":
+                    self.NormDesc.update({key: a})
+            else:
                 self.NormDesc.update({key: a})
+
         
     def GetSeriesSequences(self):
         """Returns the dict of series sequence
