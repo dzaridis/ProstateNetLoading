@@ -21,7 +21,7 @@ pydicom == 2.3.1
 Install the project via pip or pull the repo
 
 ```bash
-pip install PROSTATENETLOADER == 0.0.1
+pip install ProstateNetLoader == 0.0.1
 ```
     
 ## Usage/Examples Series Parser tool
