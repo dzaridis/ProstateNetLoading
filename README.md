@@ -98,6 +98,10 @@ They have been identified several Issues
 - [Eugenia Mylona](mylona.eugenia@gmail.com)
 - [Nikolaos Tachos](ntachos@gmail.com)
 - José Guilherme Almeida
+- Eva Pachetti
+- Giulio Del Corso
+- Maria Antonietta
+- Sara Colantonio
 
 
 ## Badges
