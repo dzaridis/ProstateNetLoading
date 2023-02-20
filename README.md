@@ -6,7 +6,7 @@ The package is under construction for the time being therefore any suggestion wo
 
 ## Prerequisites
 
-In order ot utilize ProstateNetLoader you will first need to utilize the Series Parser Docker implemented by **José Guilherme Almeida** and extract the metadata in csv format. Detailed information regarding the utilization of the Docker Series Parser pipeline could be found within the ParquetParser_Examples.ipynb
+In order ot utilize ProstateNetLoader you will first need to utilize the Series Parser Docker implemented by **José Guilherme Almeida** and extract the metadata in csv format. Detailed information regarding the utilization of the Docker Series Parser pipeline could be found within the ParquetParser_Examples.ipynb . Also Example files are located into the SeriesDockerFiles
 
 ## Requirements
 ```bash
