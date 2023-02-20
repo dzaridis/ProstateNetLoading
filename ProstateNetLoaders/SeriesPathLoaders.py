@@ -131,7 +131,7 @@ class SequenceSelectorAI():
         
             
     
-    def SetSeriesSequences(self,orientation = "AX"):
+    def SetSeriesSequences(self,orientation = "AX", Heuristics = False):
         """
         Sets the dictionary with keys as the series names and values as the corresponding Series Description in a homogenized form
         Args
@@ -139,11 +139,11 @@ class SequenceSelectorAI():
         """
         self.NormDesc = {}
         for key,value in self.desc.items():
-            print(value)
-            print(key)
-            a = self.metadata[self.metadata["series_uid"] == key]["series_type"].values
-            print(a)
-            print("----------------------")
+            
+            if Heuristics:
+                a = self.metadata[self.metadata["series_uid"] == key]["series_type_heuristics"].values
+            else:
+                a = self.metadata[self.metadata["series_uid"] == key]["series_type"].values
             if orientation == "AX":
                 if "tra" in value or "TRA" in value or "AX" in value or "Axial" in value or "AXIAL" in value or "axial" in value or "ax" in value or "Ax" in value or "Tra" in value:
                     self.NormDesc.update({key: a})

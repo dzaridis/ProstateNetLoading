@@ -1,9 +1,10 @@
 from ProstateNetLoaders import *
 
 class Execute:
-    def __init__(self, patient_path, metadata):
+    def __init__(self, patient_path, metadata, Heuristics=False):
         self.patient_path = patient_path
         self.metadata = metadata
+        self.Heuristics = Heuristics
         self.arr =None
         self.anno=None
     def LoadArrays(self, orientation = "AX", seq = "T2"):
@@ -19,7 +20,7 @@ class Execute:
         ImObj.LoadSeriesDescription() # returns the description of each series in a dict for a single patient
         ser, descr = ImObj.GetSitkObjSerDescr() 
         ses = ProstateNetLoaders.SeriesPathLoaders.SequenceSelectorAI(self.patient_path, self.metadata)
-        ses.SetSeriesSequences(orientation=orientation)
+        ses.SetSeriesSequences(orientation=orientation, Heuristics = self.Heuristics)
         ser_dicts = ses.GetSeriesSequences()
         self.seq = {}
         for key in ser_dicts.keys():
@@ -31,7 +32,7 @@ class Execute:
         self.arr =arrobj.GetArray()
         im = arrobj.GetImobj()
         
-        ld = ProstateNetLoaders.SegmentationLoaders.SegmentationLoader(self.patient_path, self.metadata)
+        ld = ProstateNetLoaders.SegmentationLoaders.SegmentationLoader(self.patient_path, self.metadata, self.Heuristics)
         ms  = ld.LoadMaskPath()
         ld.SetOrderFiles()
         ld.SetPosMask()

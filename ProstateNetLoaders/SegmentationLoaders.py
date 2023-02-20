@@ -6,14 +6,15 @@ from ProstateNetLoaders import SeriesPathLoaders
 
 
 class SegmentationLoader:
-    def __init__(self, patient_path, metadata):
+    def __init__(self, patient_path, metadata, Heuristics):
         self.patient_path = patient_path
         self.metadata = metadata
+        self.Heuristics = Heuristics
         self.mask = None 
         self.OrderKey = {}
         
         ses = SeriesPathLoaders.SequenceSelectorAI(self.patient_path,self.metadata)
-        ses.SetSeriesSequences(orientation="AX")
+        ses.SetSeriesSequences(orientation="AX", Heuristics = self.Heuristics)
         ser_dicts = ses.GetSeriesSequences()
         for key in ser_dicts.keys():
             if ser_dicts[key] == "T2":
