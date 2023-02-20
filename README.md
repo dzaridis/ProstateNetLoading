@@ -44,7 +44,7 @@ pat,ann = a.GetItems()
 
 ### Batch Loading 
 
-The structure of the folders should be like this
+The structure of the folders should be like this //
 ![image](Images/dIR.jpg)
 
 ```python
