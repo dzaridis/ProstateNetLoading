@@ -8,7 +8,7 @@ class Execute:
         self.arr =None
         self.anno=None
     def LoadArrays(self, orientation = "AX", seq = "T2"):
-        """_summary_
+        """Loads the arrays and annotation dictionaries
 
         Args:
             orientation (str, optional): plane to select from e.g "AX", "COR", "SEG". Defaults to "AX".
@@ -39,4 +39,10 @@ class Execute:
         self.Anno = ld.MatchAnno()
     
     def GetItems(self):
+        """
+        Returns the Patient arrays and Annotation arrays
+        Returns:
+            dict:  keys are the series names, values are the series image array in numpy format
+            dict:  keys are the series names, values are the annotation image array in numpy format
+        """
         return self.arr, {list(self.arr.keys())[0]:self.Anno}
