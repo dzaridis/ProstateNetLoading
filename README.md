@@ -80,11 +80,11 @@ for patient in os.listdir(pth_batch):
 
 ##  Issues
 
-They have been identified several Issues
+Several Issues have been identified 
 
 #### a) The AI series selector and Heuristics may not identify the desired sequence and therefore the module will not work. Manual handling may be necessary.
 
-#### b) If the selector is incapable of identify T2 series within a patient's study then the lesion mask will not be loader because internally demands T2 series as reference to match
+#### b) If the selector is incapable of identify T2 series within a patient's study then the lesion mask will not be loaded because the module internally demands T2 series as reference to match
 
 #### c) ADC and DWI series may have multiple images of varius b values within the pixel array therefore the parsing needs to be implemented externally and manually by the user
 
