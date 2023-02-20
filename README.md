@@ -77,6 +77,20 @@ for patient in os.listdir(pth_batch):
         T2_absence.append(patient)
         continue
 ```
+
+##  Issues
+
+They have been identified several Issues
+
+#### a) The AI series selector and Heuristics may not identify the desired sequence and therefore the module will not work. Manual handling may be necessary.
+
+#### b) If the selector is incapable of identify T2 series within a patient's study then the lesion mask will not be loader because internally demands T2 series as reference to match
+
+#### c) ADC and DWI series may have multiple images of varius b values within the pixel array therefore the parsing needs to be implemented externally and manually by the user
+
+#### d) it has not been tested for other structures of the prostate apart from lesions
+
+
 ## Authors
 
 - [Dimitris Zaridis](dimzaridis@gmail.com)
