@@ -45,6 +45,7 @@ pat,ann = a.GetItems()
 ### Batch Loading 
 
 The structure of the folders should be like this
+[image][Images/diR.png]
 
 ```python
 pth_batch = "Patients"
