@@ -8,6 +8,14 @@ The package is under construction for the time being therefore any suggestion wo
 
 In order ot utilize ProstateNetLoader you will first need to utilize the Series Parser Docker implemented by **José Guilherme Almeida** and extract the metadata in csv format. Detailed information regarding the utilization of the Docker Series Parser pipeline could be found within the ParquetParser_Examples.ipynb
 
+## Requirements
+```bash
+SimpleITK == 2.2.1
+numpy == 1.21.5
+pandas == 1.4.4
+pydicom == 2.3.1
+```
+
 ## Installation
 
 Install the project via pip or pull the repo
