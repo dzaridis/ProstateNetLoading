@@ -4,6 +4,10 @@
 Prostate Net Loader contains functions to assist the Data Mining and loading process of Patients originated from the ProCAncer-AI Horizon's 2020 project.  
 The package is under construction for the time being therefore any suggestion would be appreciated.
 
+## Prerequisites
+
+In order ot utilize ProstateNetLoader you will first need to utilize the Series Parser Docker implemented by **José Guilherme Almeida** and extract the metadata in csv format. Detailed information regarding the utilization of the Docker Series Parser pipeline could be found within the ParquetParser_Examples.ipynb
+
 ## Installation
 
 Install the project via pip or pull the repo
