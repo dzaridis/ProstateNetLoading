@@ -45,7 +45,7 @@ pat,ann = a.GetItems()
 ### Batch Loading 
 
 The structure of the folders should be like this
-![image](https://github.com/dzaridis/ProstateNetLoading)
+![image](https://github.com/dzaridis/ProstateNetLoading](https://github.com/dzaridis/ProstateNetLoading/blob/main/Images/dIR.png)
 
 ```python
 pth_batch = "Patients"
