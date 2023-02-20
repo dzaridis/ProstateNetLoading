@@ -92,13 +92,13 @@ class SequenceSelectorHeuristics():
                 if value in valuelup:
                     try:
                         if orientation == "AX":
-                            if "tra" in value or "TRA" in value or "AX" in value or "ax" in value:
+                            if "TRA" in value.upper() or "AX" in value.upper():
                                 self.NormDesc.update({key: keylup})
                         elif orientation == "SAG":
-                            if "sag" in value or "SAG":
+                            if "SAG" in value.upper():
                                 self.NormDesc.update({key: keylup})
                         elif orientation == "COR":
-                            if "cor" in value or "COR":
+                            if "COR" in value.upper():
                                 self.NormDesc.update({key: keylup})
                     except:
                         self.NormDesc.update({key: keylup})
